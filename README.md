@@ -1,3 +1,7 @@
+# RESTAURANT PAGE
+
+practicing using webpack and js dom manipulation
+
 Restaurant-page/
 │
 ├── dist/
