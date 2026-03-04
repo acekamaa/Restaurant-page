@@ -1,6 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { fileURLToPath } from 'url';
+import { watchFile } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +14,7 @@ export default (env, argv) => {
 
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(import.meta.dirname, 'dist'),
       clean: true,
     },
 
@@ -26,6 +27,7 @@ export default (env, argv) => {
         port: 8080,
         open: true,
         hot: true,
+        watchFiles: ['./src/template.html'],
     },
 
     module: {
