@@ -14,7 +14,7 @@ export default (env, argv) => {
 
     output: {
       filename: 'bundle.js',
-      path: path.resolve(import.meta.dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist'),
       clean: true,
     },
 
