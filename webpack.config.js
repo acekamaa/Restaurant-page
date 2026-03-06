@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { fileURLToPath } from 'url';
 import { watchFile } from 'fs';
+import { type } from 'os';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,35 +19,43 @@ export default (env, argv) => {
       clean: true,
     },
 
-    mode: isProduction ? "production" : "development",
+    mode: isProduction ? 'production' : 'development',
 
-    devtool: isProduction ? false : "source-map",
+    devtool: isProduction ? false : 'source-map',
 
     devServer: {
-        static: "./dist",
-        port: 8080,
-        open: true,
-        hot: true,
-        watchFiles: ['./src/template.html'],
+      static: './dist',
+      port: 8080,
+      open: true,
+      hot: true,
+      watchFiles: ['./src/template.html'],
     },
 
     module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            },
-        ],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.html$/i,
+          use: ['html-loader'],
+        },
+        {
+          test: /\.(png|jpg|jpeg)$/i,
+          type: 'asset/resource',
+        },
+      ],
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/template.html",
-        }),
+      new HtmlWebpackPlugin({
+        template: './src/template.html',
+      }),
     ],
 
     resolve: {
-        extensions: [".js"],
+      extensions: ['.js'],
     },
   };
 };
