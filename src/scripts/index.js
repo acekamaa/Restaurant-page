@@ -1,10 +1,8 @@
-console.log('Welcome to our Restaurant');
-
 // src/scripts/index.js
 
-import loadHome from './home';
-import loadMenu from './menu';
-import loadContact from './contact';
+import loadHome from './home.js';
+import loadMenu from './menu.js';
+import loadContact from './contact.js';
 
 function clearContent() {
   const content = document.getElementById('content');
