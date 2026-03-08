@@ -21,12 +21,12 @@ export default function loadMenu() {
   item2.textContent = '🍕 Pizza - KES 800';
 
   const item3Div = document.createElement('div');
-  item1Div.classList.add('pancakes-div');
+  item3Div.classList.add('pancakes-div');
   const item3 = document.createElement('p');
   item3.textContent = '🥞 Pancakes - KES 300';
 
   const item4Div = document.createElement('div');
-  item1Div.classList.add('coffee-div');
+  item4Div.classList.add('coffee-div');
   const item4 = document.createElement('p');
   item4.textContent = '☕ Coffee - KES 300';
 
